@@ -37,10 +37,12 @@ In order to test your own model, follow this instruction:
 Your model can be specified in `my_model.jl` file, preferably located in `examples/models/my_model` folder. The file may include three functions:
 - `1) my_model_dynamics(x, u)`: where `x` is the vector of system variables and `u` is the vector of control variables. This function returns a vector `dx` which specifies how the derivative of system variables are computed. For example, for a single pendulum system, the continuous-time system is:
 
-\\[ \dot{x}_1 = x_2 \\]
-\\[ \dot{x}_2 = g/l * sin(x_1) + 1 / (m*l^2) * (u_1 - c * x_2) \\]
+<img src="https://render.githubusercontent.com/render/math?math=\dot{x}_1 = x_2">
 
-where \\(g, l, m\\) and \\(c \\) are model parameters (gravitational acceleration, pendulum length, pendulum mass and viscous drag coefficient). For the single pendulum model, `single_pend_dynamics(x, y)` looks like this:
+<img src="https://render.githubusercontent.com/render/math?math=\dot{x}_2 = \frac{g}{l} \sin(x_1)  +  \frac{u_1 - c x_2}{ml^2}">
+
+where
+<img src="https://render.githubusercontent.com/render/math?math=g, l, m \text{and} c">  are model parameters: gravitational acceleration, pendulum length, pendulum mass and viscous drag coefficient). For the single pendulum model, `single_pend_dynamics(x, y)` looks like this:
 
 ```
 function single_pend_dynamics(x::Array{T, 1} where {T <: Real},
