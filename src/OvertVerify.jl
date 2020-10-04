@@ -4,7 +4,9 @@ include("overt_to_mip.jl")
 include("problems.jl")
 include("mip_utils.jl")
 
-export OvertMIP,
+export Id,
+       ReLU,
+       OvertMIP,
        OvertQuery,
        OvertProblem,
        overt_2_mip,
