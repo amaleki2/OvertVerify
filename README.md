@@ -11,6 +11,7 @@ This repo integrates Overt and MIPVerify tools for the purpose of verifying clos
 ## Dependency
 OvertVerify is tested with julia 1.x and Ubuntu 18, Windows 10 and SOME MC SYSTEM HERE operating systems. The following packages are required for OvertVerify:
 
+```
 Overt = "0.1"
 Parameters = "0.12"
 MathProgBase = "0.7"
@@ -21,6 +22,7 @@ GLPK = "0.13"
 Gurobi = "0.8"
 LazySets = "1.37"
 Crayons = "4.0"
+```
 
 ## Installation
 ```
