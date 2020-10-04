@@ -33,7 +33,7 @@ add https://github.com/amaleki2/OvertVerify
 ## Usage
 Examples of reachability and satisfiability problems are setup in the `example` folder.
 In order to test your own model, follow this instruction:
-#### Setup mode
+#### Setup model
 Your model can be specified in `my_model.jl` file, preferably located in `examples/models/my_model` folder. The file may include three functions:
 - `1) my_model_dynamics(x, u)`: where `x` is the vector of system variables and `u` is the vector of control variables. This function returns a vector `dx` which specifies how the derivative of system variables are computed. For example, for a single pendulum system, the continuous-time system is:
 
