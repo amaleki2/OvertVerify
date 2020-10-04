@@ -47,8 +47,7 @@ where
 <img src="https://render.githubusercontent.com/render/math?math=c"> are model parameters: gravitational acceleration, pendulum length, pendulum mass and viscous drag coefficient). For the single pendulum model, `single_pend_dynamics(x, y)` looks like this:
 
 ```
-function single_pend_dynamics(x::Array{T, 1} where {T <: Real},
-	                          u::Array{T, 1} where {T <: Real})
+function single_pend_dynamics(x, u)
 	m, l, g, c = 0.5, 0.5, 1., 0.
     dx1 = x[2]
     dx2 = g/l * sin(x[1]) + 1 / (m*l^2) * (u[1] - c * x[2])
@@ -78,7 +77,7 @@ combined_v_oA = add_overapproximate([v1_oA, v2_oA])
 ```
 see other models in `example\models` folder for your reference.
 
-- `my_model_update_rule(input_vars, control_vars, overt_output_vars)`: this function determines how the over-approximated model may be constructed. The output is a dictionary
+- `3) my_model_update_rule(input_vars, control_vars, overt_output_vars)`: this function determines how the over-approximated model may be constructed. The output is a dictionary
 that indicates how the time-discrete integration of each state variable may be computed.
 For example, for the single pendulum model, the function looks like this:
 ```
