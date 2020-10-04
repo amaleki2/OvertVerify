@@ -39,10 +39,12 @@ Your model can be specified in `my_model.jl` file, preferably located in `exampl
 
 <img src="https://render.githubusercontent.com/render/math?math=\dot{x}_1 = x_2">
 
-<img src="https://render.githubusercontent.com/render/math?math=\dot{x}_2 = \frac{g}{l} \sin(x_1)  +  \frac{u_1 - c x_2}{ml^2}">
+<img src="https://render.githubusercontent.com/render/math?math=\dot{x}_2 = \frac{g}{l} \sin(x_1)"> +
+<img src="https://render.githubusercontent.com/render/math?math=\frac{u_1 - c x_2}{ml^2}">
 
 where
-<img src="https://render.githubusercontent.com/render/math?math=g, l, m \text{and} c">  are model parameters: gravitational acceleration, pendulum length, pendulum mass and viscous drag coefficient). For the single pendulum model, `single_pend_dynamics(x, y)` looks like this:
+<img src="https://render.githubusercontent.com/render/math?math=g, l, m">  and
+<img src="https://render.githubusercontent.com/render/math?math=c"> are model parameters: gravitational acceleration, pendulum length, pendulum mass and viscous drag coefficient). For the single pendulum model, `single_pend_dynamics(x, y)` looks like this:
 
 ```
 function single_pend_dynamics(x::Array{T, 1} where {T <: Real},
