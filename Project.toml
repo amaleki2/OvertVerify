@@ -1,0 +1,13 @@
+name = "OvertVerify"
+uuid = "d69646ef-0d08-4166-aee4-5b284c5945f8"
+authors = ["Amir Maleki", "Chelsea Sidrane"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
