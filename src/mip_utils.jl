@@ -4,7 +4,6 @@ using GLPK
 using LazySets
 using Parameters
 using Interpolations
-using Gurobi
 using Dates
 using MathOptInterface
 #using PGFPlots
