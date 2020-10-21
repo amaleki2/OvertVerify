@@ -1070,17 +1070,30 @@ plotting
 
 rectangle(w, h, x, y) = Shape(x .+ [0,w,w,0], y .+ [0,0,h,h])
 
+function to_rectangle(s::Hyperrectangle)
+	w = s.radius[idx[1]] * 2
+	h = s.radius[idx[2]] * 2
+	x = s.center[idx[1]] - s.radius[idx[1]]
+	y = s.center[idx[2]] - s.radius[idx[2]]
+	return rectangle(w,h,x,y)
+end
+
+function to_rectangle(s::TiltedHyperrectangle)
+	w = s.radius[idx[1]] * 2
+	h = s.radius[idx[2]] * 2
+	x = s.center[idx[1]] - s.radius[idx[1]]
+	y = s.center[idx[2]] - s.radius[idx[2]]
+	X = [x .+ [0,w,w,0], y .+ [0,0,h,h]]
+	X = hcat(X...)
+	X = X * s.conv_mat
+	return Shape(X[:, 1], X[:, 2])
+end
+
 function plot_output_sets(output_sets; idx=[1,2], fig=nothing, linewidth=3,
     linecolor=:black, linestyle=:solid, fillalpha=0, fill=:red)
-
     fig = isnothing(fig) ? Plots.plot() : fig
     for s in output_sets
-        w = s.radius[idx[1]] * 2
-        h = s.radius[idx[2]] * 2
-        x = s.center[idx[1]] - s.radius[idx[1]]
-        y = s.center[idx[2]] - s.radius[idx[2]]
-        #plot!(rectangle(w,h,x,y), fillalpha=0.0, kwargs)
-        Plots.plot!(rectangle(w,h,x,y), fillalpha=fillalpha, fill=fill, legend=nothing,
+        Plots.plot!(to_rectangle(s), fillalpha=fillalpha, fill=fill, legend=nothing,
                    linewidth=linewidth, linecolor=linecolor, linestyle=linestyle)
         Plots.xlabel!("x_$(idx[1])")
         Plots.ylabel!("x_$(idx[2])")

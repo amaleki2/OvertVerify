@@ -18,4 +18,4 @@ query = OvertQuery(
 	)
 
 input_set = Hyperrectangle(low=[1., 0.], high=[1.2, 0.2])
-all_sets, all_sets_symbolic = symbolic_reachability_with_concretization(query, input_set, [15, 15, 10])
+all_sets, all_sets_symbolic = symbolic_reachability_with_concretization(query, input_set, [1, 1])
