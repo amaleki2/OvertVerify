@@ -27,10 +27,10 @@ jobs:
           using Pkg
           Pkg.develop(PackageSpec(path=pwd()))
           Pkg.instantiate()
-          using Documenter: doctest
+          #using Documenter: doctest
           using OvertVerify
-          doctest(OvertVerify)
-          include("docs/make.jl")'
+          #doctest(OvertVerify)
+          #include("docs/make.jl")'
       after_success: skip
 script:
   - julia -e 'using Pkg; pkg"add https://github.com/sisl/Overt.jl"'
