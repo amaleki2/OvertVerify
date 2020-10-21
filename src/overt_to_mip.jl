@@ -22,16 +22,21 @@ mutable struct OvertMIP
 end
 
 # default constructor
-function OvertMIP(overt_app::OverApproximation)
-     overt_mip_model = OvertMIP(overt_app,
-                         Model(with_optimizer(Gurobi.Optimizer, OutputFlag=0)),
-                         Dict{Symbol, JuMP.VariableRef}(),
-                         "Gurobi")
-    overt_2_mip(overt_mip_model)
-    return overt_mip_model
+default_solver = "GLPK"
+function OvertMIP(overt_app::OverApproximation; solver::String=default_solver)
+    if solver == "Gurobi"
+        model = Model(Gurobi.Optimizer)
+        set_optimizer_attributes(model, "OutputFlag" => 0)
+    elseif solver == "GLPK"
+        model = Model(GLPK.Optimizer)
+   else
+       throw("solver $solver is not implemented.")
+   end
+   sym_dict = Dict{Symbol, JuMP.VariableRef}()
+   overt_mip_model = OvertMIP(overt_app, model, sym_dict, solver)
+   overt_2_mip(overt_mip_model)
+   return overt_mip_model
 end
-
-#TODO: secondary constructor with specified solver
 
 
 Base.print(overt_mip_model::OvertMIP) = println(overt_mip_model.model)

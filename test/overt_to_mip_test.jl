@@ -17,19 +17,19 @@ function overt_2_mip_test1()
 
     @objective(overt_mip_model.model, Min, overt_mip_model.vars_dict[:x2])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 2.
+    @test objective_value(overt_mip_model.model) ≈ 2.
 
     @objective(overt_mip_model.model, Max, overt_mip_model.vars_dict[:x2])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 6.
+    @test objective_value(overt_mip_model.model) ≈ 6.
 
     @objective(overt_mip_model.model, Min, overt_mip_model.vars_dict[:x2] - overt_mip_model.vars_dict[:x])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 1.
+    @test objective_value(overt_mip_model.model) ≈ 1.
 
     @objective(overt_mip_model.model, Max, overt_mip_model.vars_dict[:x2] - overt_mip_model.vars_dict[:x])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 7.
+    @test objective_value(overt_mip_model.model) ≈ 7.
 end
 
 function overt_2_mip_test2()
@@ -47,19 +47,19 @@ function overt_2_mip_test2()
 
     @objective(overt_mip_model.model, Min, overt_mip_model.vars_dict[:x2])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 0.
+    @test objective_value(overt_mip_model.model) ≈ 0.
 
     @objective(overt_mip_model.model, Max, overt_mip_model.vars_dict[:x2])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 0.5
+    @test objective_value(overt_mip_model.model) ≈ 0.5
 
     @objective(overt_mip_model.model, Min, overt_mip_model.vars_dict[:x2] - overt_mip_model.vars_dict[:x])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == -2.
+    @test objective_value(overt_mip_model.model) ≈ -2.
 
     @objective(overt_mip_model.model, Max, overt_mip_model.vars_dict[:x2] - overt_mip_model.vars_dict[:x])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 1.
+    @test objective_value(overt_mip_model.model) ≈ 1.
 end
 
 function overt_2_mip_test3()
@@ -77,12 +77,12 @@ function overt_2_mip_test3()
 
     @objective(overt_mip_model.model, Min, overt_mip_model.vars_dict[:x3])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 0.
+    @test objective_value(overt_mip_model.model) ≈ 0.
 
 
     @objective(overt_mip_model.model, Max, overt_mip_model.vars_dict[:x3])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) ==  8.
+    @test objective_value(overt_mip_model.model) ≈  8.
 
     @objective(overt_mip_model.model, Min, overt_mip_model.vars_dict[:x3] - overt_mip_model.vars_dict[:x])
     JuMP.optimize!(overt_mip_model.model)
@@ -90,7 +90,7 @@ function overt_2_mip_test3()
 
     @objective(overt_mip_model.model, Max, overt_mip_model.vars_dict[:x3] - overt_mip_model.vars_dict[:x])
     JuMP.optimize!(overt_mip_model.model)
-    @test objective_value(overt_mip_model.model) == 6.
+    @test objective_value(overt_mip_model.model) ≈ 6.
 end
 
 overt_2_mip_test1()
