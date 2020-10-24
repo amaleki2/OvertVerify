@@ -17,7 +17,7 @@ Parameters = "d96e819e-fc66-5662-9728-84c9c7592b0a"
 
 [compat]
 julia = "1"
-Parameters = "0.12"
+Parameters = "0.11, 0.12, 0.13, 0.14"
 MathProgBase = "0.7"
 MathOptInterface = "0.9"
 JuMP = "0.21"
