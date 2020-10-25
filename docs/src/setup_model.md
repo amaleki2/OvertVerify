@@ -20,7 +20,7 @@ function single_pend_dynamics(x, u)
 end
 ```
 
-- `2)my_model_dynamics_overt(range_dict, N_overt; t_idx)`: This function generates an relational overapproximation of the original model. `range_dict` indicates the range of system variables as a dictionary and `N_overt` is the number of linear segment, the parameter that Overt library takes. Passing `N_overt=-1` lets Overt to choose this parameter efficiently.
+- `2) my_model_dynamics_overt(range_dict, N_overt; t_idx)`: This function generates an relational overapproximation of the original model. `range_dict` indicates the range of system variables as a dictionary and `N_overt` is the number of linear segment, the parameter that Overt library takes. Passing `N_overt=-1` lets Overt to choose this parameter efficiently.
 Often times, one may be interested in verifying a desired property of the closed system over
 a number of timesteps. Keeping a symbolic expression of the model over time allows OvertVerify to be significantly less conservative; see [here](link to paper) for more details. To allow this to happen, we need to assign a secondary subscript to the system variables to keep track of the time step. parameter `t_idx` is that extra subscript. The default value `t_idx=nothing` means no symbolic representation is kept over time. The output of this function is a tuple of `(v_oA, [v_oA.output])` where `v_oA` is the `OverApproximation` object that includes overapproximation of nonlinear part of your model. For example, for the single pendulum model, the function looks like this:
 ```julia
