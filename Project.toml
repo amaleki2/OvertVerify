@@ -22,7 +22,7 @@ MathProgBase = "0.7"
 MathOptInterface = "0.9"
 JuMP = "0.21"
 Interpolations = "0.12"
-GLPK = "0.13"
+GLPK = "0.12,0.13,0.14"
 LazySets = "1.37"
 Crayons = "4.0"
 
