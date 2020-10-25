@@ -29,4 +29,4 @@ add https://github.com/sisl/OvertVerify
 ```
 
 ## Usage
-See the accompanied documentation. 
+See the accompanied documentation [here](docs/src/index.md)
