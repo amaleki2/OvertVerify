@@ -19,19 +19,19 @@ jobs:
   fast_finish: true
   allow_failures:
     - julia: nightly
- # include:
-   # - stage: Documentation
-   #   julia: 1
-   #   script: |
-   #     julia --project=docs -e '
-   #       using Pkg
-   #       Pkg.develop(PackageSpec(path=pwd()))
-   #       Pkg.instantiate()
-   #       #using Documenter: doctest
-   #       using OvertVerify
-   #       #doctest(OvertVerify)
-   #       #include("docs/make.jl")'
-   #   after_success: skip
+ include:
+   - stage: Documentation
+     julia: 1
+     script: |
+       julia --project=docs -e '
+         using Pkg
+         Pkg.develop(PackageSpec(path=pwd()))
+         Pkg.instantiate()
+         #using Documenter: doctest
+         using OvertVerify
+         #doctest(OvertVerify)
+         #include("docs/make.jl")'
+     after_success: skip
 script:
   - julia -e 'using Pkg; pkg"add https://github.com/sisl/Overt.jl"'
 
