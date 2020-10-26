@@ -8,6 +8,7 @@ This repo integrates Overt and MIPVerify tools for the purpose of verifying clos
 
 ## Installation
 ```
+] add https://github.com/sisl/Overt.jl
 ] add https://github.com/sisl/OvertVerify.jl
 ```
 
